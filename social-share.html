@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todito Apple - Imagen para Redes Sociales</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .share-card {
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+            border-radius: 30px;
+            padding: 50px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .share-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { transform: translate(-30%, -30%) rotate(45deg); }
+            50% { transform: translate(30%, 30%) rotate(45deg); }
+        }
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+        .brand-title {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1d1d1f 0%, #434344 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .brand-tagline {
+            color: #86868b;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .qr-container {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            display: inline-block;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .qr-hint {
+            color: #1d1d1f;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .cta-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+        .cta-subtext {
+            color: #86868b;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #1d1d1f;
+            font-size: 13px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: #0071e3;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .download-btn:hover {
+            background: #0077ed;
+        }
+        .whatsapp-share {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 15px 40px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-share:hover {
+            background: #128C7E;
+        }
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Imagen para Compartir en Redes Sociales</h1>
+
+    <div class="share-card" id="shareCard">
+        <div class="card-content">
+            <img src="logo.png" alt="Todito Apple" class="logo">
+            <h2 class="brand-title">Todito Apple</h2>
+            <p class="brand-tagline">Fundas Personalizadas para iPhone</p>
+
+            <div class="qr-container">
+                <div id="qrcode"></div>
+            </div>
+
+            <p class="qr-hint">Escanea el código QR para visitar nuestra tienda</p>
+
+            <p class="cta-text">¡Diseña tu funda única!</p>
+            <p class="cta-subtext">Calidad premium • Diseños exclusivos • Entrega rápida</p>
+
+            <div class="features">
+                <span class="feature">🎨 Personalización total</span>
+                <span class="feature">📱 Todos los modelos iPhone</span>
+                <span class="feature">🚚 Envío rápido</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <button class="download-btn" onclick="downloadImage()">📥 Descargar Imagen</button>
+        <a href="https://wa.me/522941131400?text=Mira%20estas%20fundas%20increíbles%20para%20iPhone:%20https://panterin17-wq.github.io/todito-apple-landing" target="_blank" class="whatsapp-share">
+            💬 Compartir por WhatsApp
+        </a>
+    </div>
+
+    <script>
+        // Generar el código QR
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://panterin17-wq.github.io/todito-apple-landing",
+            width: 200,
+            height: 200,
+            colorDark: "#1d1d1f",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // Función para descargar la imagen
+        function downloadImage() {
+            const card = document.getElementById('shareCard');
+
+            html2canvas(card, {
+                scale: 2,
+                backgroundColor: null,
+                useCORS: true,
+                logging: false
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'todito-apple-promo.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
