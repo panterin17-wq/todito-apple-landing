@@ -551,6 +551,81 @@
             margin-top: 30px;
         }
 
+        /* Maquina QR Section */
+        .maquina-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 20px;
+            color: #fff;
+        }
+
+        .maquina-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .maquina-qr {
+            background: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 30px 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .maquina-qr img {
+            width: 250px;
+            height: 250px;
+            border-radius: 12px;
+        }
+
+        .instrucciones {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .instrucciones h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .instrucciones ol {
+            list-style: none;
+            counter-reset: steps;
+        }
+
+        .instrucciones li {
+            padding: 15px 0;
+            padding-left: 50px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .instrucciones li::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35px;
+            height: 35px;
+            background: #fff;
+            color: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .simulador-grid {
@@ -584,6 +659,7 @@
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#simulador">Simulador</a></li>
             <li><a href="#galeria">Galería</a></li>
+            <li><a href="#maquina">🎯 Máquina</a></li>
             <li><a href="#proceso">Proceso</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -710,6 +786,34 @@
                 </div>
                 <p style="color: var(--gray); font-size: 14px; margin-top: 15px;">Escanea para visitar nuestra tienda</p>
             </div>
+        </div>
+    </section>
+
+    <!-- Maquina QR Section -->
+    <section id="maquina" class="maquina-section">
+        <div class="maquina-container">
+            <h2 class="section-title" style="color: #fff;">Diseña en Nuestra Máquina</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Escanea el código y crea tu funda directamente desde tu celular</p>
+
+            <div class="maquina-qr">
+                <img src="aqui diseña tu funda.jpg" alt="QR Máquina de Fundas">
+            </div>
+
+            <div class="instrucciones">
+                <h3>📱 Cómo Funciona</h3>
+                <ol>
+                    <li><strong>Escanea el código QR</strong> con tu cámara o app de escaneo</li>
+                    <li><strong>Selecciona tu modelo</strong> de iPhone (12, 13, 14, 15, Pro Max)</li>
+                    <li><strong>Sube tu imagen</strong> o elige un diseño de nuestra galería</li>
+                    <li><strong>Agrega texto</strong> personalizado si lo deseas</li>
+                    <li><strong>Visualiza el resultado</strong> en tiempo real</li>
+                    <li><strong>Confirma tu pedido</strong> por WhatsApp y recoge en tienda</li>
+                </ol>
+            </div>
+
+            <a href="https://wa.me/2941131400" class="btn btn-whatsapp" target="_blank" style="margin-top: 40px; display: inline-flex;">
+                💬 ¿Necesitas ayuda? Escríbenos
+            </a>
         </div>
     </section>
 
