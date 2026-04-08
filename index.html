@@ -50,15 +50,22 @@
         }
 
         .nav-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: #000;
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            -webkit-text-stroke: 1px silver;
+            text-shadow: 0 0 5px rgba(192, 192, 192, 0.5);
+            transition: all 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: #fff;
+        .nav-links a:hover, .nav-links a:active {
+            color: #000;
+            -webkit-text-stroke: 1px #fff;
+            text-shadow: 0 0 10px silver, 0 0 20px #fff;
+            transform: scale(1.1);
         }
 
         .logo-nav {
@@ -154,6 +161,7 @@
             gap: 8px;
             cursor: pointer;
             border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .btn-primary {
@@ -163,7 +171,8 @@
 
         .btn-primary:hover {
             background: var(--primary-hover);
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 20px var(--primary);
         }
 
         .btn-whatsapp {
@@ -173,182 +182,264 @@
 
         .btn-whatsapp:hover {
             background: #128c7e;
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 20px var(--whatsapp);
         }
 
-        /* Simulador Section */
-        .simulador {
+        /* === SECTION HEADERS (compartido por todas las secciones) === */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 12px;
+            padding: 6px 16px;
+            background: rgba(0, 113, 227, 0.08);
+            border-radius: 50px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .section-title-dark {
+            background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title-light {
+            color: #fff;
+        }
+
+        .section-subtitle {
+            font-size: 19px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .section-subtitle-light {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), #38ef7d);
+            border-radius: 4px;
+            margin: 20px auto 0;
+        }
+
+        /* Micas de Hidrogel Section */
+        .hidrogel-section {
             background: var(--light);
             color: var(--dark);
             padding: 100px 20px;
         }
-
-        .section-title {
+        .hidrogel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        .hidrogel-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .hidrogel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .hidrogel-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .hidrogel-title {
+            font-size: 28px;
+            font-weight: 800;
             margin-bottom: 15px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
+            color: var(--primary);
             text-align: center;
-            font-size: 18px;
-            color: var(--gray);
-            margin-bottom: 50px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
-
-        .simulador-container {
+        .hidrogel-desc {
+            color: var(--gray);
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: center;
+        }
+        .hidrogel-banner {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
             max-width: 1000px;
             margin: 0 auto;
-            background: #fff;
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .simulador-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .phone-preview {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .phone-mockup {
-            width: 280px;
-            height: 560px;
-            background: var(--dark);
-            border-radius: 40px;
-            padding: 12px;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .phone-notch {
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 30px;
-            background: var(--dark);
-            border-radius: 20px;
-            z-index: 10;
-        }
-
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .case-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .case-text {
-            color: #fff;
-            font-weight: 700;
             font-size: 24px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-transform: uppercase;
         }
 
-        .controls {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .control-group label {
-            font-weight: 600;
-            font-size: 14px;
+        /* Productos Section */
+        .productos-section {
+            padding: 100px 20px;
+            background: #fff;
             color: var(--dark);
         }
-
-        .iphone-selector {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        .model-btn {
-            padding: 10px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+        .producto-card {
+            background: var(--light);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .producto-img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;   
             background: #fff;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
         }
-
-        .model-btn.active, .model-btn:hover {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .color-options {
+        .producto-info {
+            padding: 25px;
+            text-align: center;
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 15px;
+            flex-grow: 1;
+        }
+        .producto-info h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        .producto-info p {
+            color: var(--gray);
+            flex-grow: 1;
+        }
+        .producto-card .btn {
+            width: 100%;
+            justify-content: center;
         }
 
-        .color-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 3px solid transparent;
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background: #fff;
+            color: var(--dark);
+            padding: 40px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
             cursor: pointer;
-            transition: all 0.3s;
+            color: var(--gray);
+            background: none;
+            border: none;
+            outline: none;
         }
-
-        .color-btn.active {
-            border-color: var(--primary);
-            transform: scale(1.1);
+        .close-modal:hover { color: red; }
+        
+        .cotiza-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
         }
-
-        .text-input {
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 16px;
+        .cotiza-input {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
             font-family: inherit;
-            transition: border-color 0.3s;
         }
-
-        .text-input:focus {
+        .cotiza-input:focus {
             outline: none;
             border-color: var(--primary);
+        }
+        .accesorios-list {
+            list-style: none;
+            padding: 20px 0 0 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .accesorios-list li {
+            padding: 15px;
+            background: var(--light);
+            border-radius: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .accesorios-list li:hover {
+            border-color: var(--primary);
+            background: #fff;
         }
 
         /* Galeria */
@@ -359,10 +450,36 @@
 
         .galeria-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* Últimas 2 imágenes centradas en la fila inferior */
+        .galeria-item:nth-child(4) {
+            grid-column: 1 / 2;
+            margin-left: auto;
+            width: 100%;
+        }
+
+        .galeria-item:nth-child(5) {
+            grid-column: 3 / 4;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        /* Row 2: centrar las 2 imágenes finales */
+        .galeria-row-2 {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .galeria-row-2 .galeria-item {
+            width: calc(33.33% - 13px);
         }
 
         .galeria-item {
@@ -657,9 +774,9 @@
         <img src="logo.png" alt="Todito Apple" class="logo-nav">
         <ul class="nav-links">
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#simulador">Simulador</a></li>
+            <li><a href="#hidrogel">Micas</a></li>
+            <li><a href="#productos">Servicios</a></li>
             <li><a href="#galeria">Galería</a></li>
-            <li><a href="#maquina">🎯 Máquina</a></li>
             <li><a href="#proceso">Proceso</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
@@ -678,63 +795,81 @@
             <p class="hero-tagline">Fundas Personalizadas</p>
             <p class="hero-desc">Diseña tu funda única para iPhone. Calidad premium, diseños exclusivos y entrega rápida. ¡Haz tu iPhone verdaderamente tuyo!</p>
             <div class="btn-group">
-                <a href="#simulador" class="btn btn-primary">🎨 Diseñar Funda</a>
+                <a href="#hidrogel" class="btn btn-primary">💧 Ver Micas HD</a>
                 <a href="https://wa.me/2941131400" class="btn btn-whatsapp" target="_blank">💬 WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <!-- Simulador -->
-    <section id="simulador" class="simulador">
-        <h2 class="section-title">Simulador de Fundas</h2>
-        <p class="section-subtitle">Diseña tu funda personalizada y visualiza cómo quedará en tu iPhone</p>
+    <!-- Micas de Hidrogel -->
+    <section id="hidrogel" class="hidrogel-section">
+        <div class="section-header">
+            <span class="section-eyebrow">Protección Premium</span>
+            <h2 class="section-title section-title-dark">Micas de Hidrogel</h2>
+            <p class="section-subtitle">La mejor tecnología para proteger la pantalla de tus dispositivos</p>
+            <div class="section-divider"></div>
+        </div>
 
-        <div class="simulador-container">
-            <div class="simulador-grid">
-                <div class="phone-preview">
-                    <div class="phone-mockup" id="phoneMockup">
-                        <div class="phone-notch"></div>
-                        <div class="phone-screen">
-                            <div class="case-overlay" id="caseOverlay" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">
-                                <span class="case-text" id="caseText">TU DISEÑO</span>
-                            </div>
-                        </div>
-                    </div>
+        <div class="hidrogel-banner">
+            CONTAMOS CON EL 99% DE MODELOS DE TODAS LAS MARCAS PARA CELULARES Y SMART WATCH
+        </div>
+
+        <div class="hidrogel-grid">
+            <div class="hidrogel-card">
+                <div class="hidrogel-icon">🔍</div>
+                <h3 class="hidrogel-title">HD</h3>
+                <p class="hidrogel-desc">Máxima transparencia, no altera los colores de la pantalla y la protege de rayones.</p>
+            </div>
+            <div class="hidrogel-card">
+                <div class="hidrogel-icon">👁️</div>
+                <h3 class="hidrogel-title">BLUE RAY</h3>
+                <p class="hidrogel-desc">Filtro de luz azul para proteger tu vista, reduce la fatiga ocular mientras protege tu pantalla al máximo.</p>
+            </div>
+            <div class="hidrogel-card">
+                <div class="hidrogel-icon">🎮</div>
+                <h3 class="hidrogel-title">MATE</h3>
+                <p class="hidrogel-desc">Anti-reflejante, ideal para uso en exteriores e interiores iluminados, evita marcas de huellas dactilares (anti-huellas) perfecta para gamers.</p>
+            </div>
+            <div class="hidrogel-card">
+                <div class="hidrogel-icon">🕵️</div>
+                <h3 class="hidrogel-title">PRIVACIDAD</h3>
+                <p class="hidrogel-desc">Protege tu información, solo tú puedes ver la pantalla de frente, si alguien la ve de lado, la pantalla se verá oscura.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Productos -->
+    <section id="productos" class="productos-section">
+        <div class="section-header">
+            <span class="section-eyebrow">Catálogo</span>
+            <h2 class="section-title section-title-dark">Nuestros Productos</h2>
+            <p class="section-subtitle">Soluciones integrales para tus dispositivos</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="productos-grid">
+            <div class="producto-card" onclick="openCotizaModal('Servicio Técnico Apple Celulares')">
+                <img src="hero-product.png" class="producto-img" alt="Servicio Técnico Celulares">
+                <div class="producto-info">
+                    <h3>Servicio Técnico Apple Celulares</h3>
+                    <p>Reparación e instalación experta</p>
+                    <button class="btn btn-primary">🛠️ Cotiza aquí</button>
                 </div>
-
-                <div class="controls">
-                    <div class="control-group">
-                        <label>Selecciona tu iPhone</label>
-                        <div class="iphone-selector">
-                            <button class="model-btn active" data-model="12">iPhone 12</button>
-                            <button class="model-btn" data-model="13">iPhone 13</button>
-                            <button class="model-btn" data-model="14">iPhone 14</button>
-                            <button class="model-btn" data-model="15">iPhone 15</button>
-                            <button class="model-btn" data-model="pro">Pro Max</button>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label>Color de la Funda</label>
-                        <div class="color-options">
-                            <button class="color-btn active" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);" data-gradient="linear-gradient(135deg, #ff6b6b, #ee5a24)"></button>
-                            <button class="color-btn" style="background: linear-gradient(135deg, #667eea, #764ba2);" data-gradient="linear-gradient(135deg, #667eea, #764ba2)"></button>
-                            <button class="color-btn" style="background: linear-gradient(135deg, #11998e, #38ef7d);" data-gradient="linear-gradient(135deg, #11998e, #38ef7d)"></button>
-                            <button class="color-btn" style="background: linear-gradient(135deg, #fc4a1a, #f7b733);" data-gradient="linear-gradient(135deg, #fc4a1a, #f7b733)"></button>
-                            <button class="color-btn" style="background: linear-gradient(135deg, #1a1a2e, #16213e);" data-gradient="linear-gradient(135deg, #1a1a2e, #16213e)"></button>
-                            <button class="color-btn" style="background: #fff; border: 2px solid #ddd;" data-gradient="#fff"></button>
-                            <button class="color-btn" style="background: #1a1a2e;" data-gradient="#1a1a2e"></button>
-                        </div>
-                    </div>
-
-                    <div class="control-group">
-                        <label>Texto Personalizado (opcional)</label>
-                        <input type="text" class="text-input" id="customText" placeholder="Tu nombre o frase" maxlength="15">
-                    </div>
-
-                    <a href="https://wa.me/2941131400?text=Hola!%20Quiero%20pedir%20una%20funda%20personalizada" class="btn btn-whatsapp" target="_blank" style="justify-content: center;">
-                        💬 Solicitar esta funda
-                    </a>
+            </div>
+            <div class="producto-card" onclick="openAccesoriosModal()">
+                <img src="lifestyle.png" class="producto-img" alt="Accesorios">
+                <div class="producto-info">
+                    <h3>Accesorios</h3>
+                    <p>Complementos de excelente calidad</p>
+                    <button class="btn btn-primary">🎧 Ver accesorios</button>
+                </div>
+            </div>
+            <div class="producto-card" onclick="openCotizaModal('Servicio Apple Watch')">
+                <img src="APPLE WATCH.png" class="producto-img" alt="Servicio Apple Watch">
+                <div class="producto-info">
+                    <h3>Servicio Apple Watch</h3>
+                    <p>Mantenimiento y reparación</p>
+                    <button class="btn btn-primary">⌚ Cotiza aquí</button>
                 </div>
             </div>
         </div>
@@ -742,22 +877,33 @@
 
     <!-- Galeria -->
     <section id="galeria" class="galeria">
-        <h2 class="section-title">Nuestros Diseños</h2>
-        <p class="section-subtitle">Mira algunos ejemplos de fundas que hemos creado</p>
+        <div class="section-header">
+            <span class="section-eyebrow">Portafolio</span>
+            <h2 class="section-title section-title-dark">Nuestros Diseños</h2>
+            <p class="section-subtitle">Mira algunos ejemplos de fundas que hemos creado para nuestros clientes</p>
+            <div class="section-divider"></div>
+        </div>
 
-        <div class="galeria-grid" id="galeriaGrid">
-            <!-- Las imágenes se cargarán dinámicamente -->
+        <div class="galeria-grid" id="galeriaRow1">
+            <!-- Fila 1: 3 imágenes -->
+        </div>
+        <div class="galeria-row-2" id="galeriaRow2" style="margin-top: 25px;">
+            <!-- Fila 2: 2 imágenes centradas -->
         </div>
     </section>
 
     <!-- Video -->
     <section id="proceso" class="video-section">
-        <h2 class="section-title">Nuestro Proceso</h2>
-        <p class="section-subtitle" style="color: var(--gray);">Descubre cómo creamos tu funda perfecta</p>
+        <div class="section-header">
+            <span class="section-eyebrow" style="background: rgba(255,255,255,0.12); color: #fff;">Transparencia</span>
+            <h2 class="section-title section-title-light">Nuestro Proceso</h2>
+            <p class="section-subtitle section-subtitle-light">Descubre cómo creamos tu funda perfecta</p>
+            <div class="section-divider"></div>
+        </div>
 
         <div class="video-container">
             <video controls poster="hero-product.png">
-                <source src="VIDEO MUETRA DE PROCESO/WhatsApp Video 2026-04-07 at 2.44.01 PM.mp4" type="video/mp4">
+                <source src="VIDEO MUETRA DE PROCESO/video del proceso.mp4" type="video/mp4">
                 Tu navegador no soporta videos.
             </video>
         </div>
@@ -837,64 +983,86 @@
     <a href="https://wa.me/2941131400" class="whatsapp-float" target="_blank">
         <span style="font-size: 24px;">💬</span>
         <span>Pedidos</span>
-    </a>
+    </a>    <!-- Modals -->
+    <div class="modal" id="cotizaModal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Cerrar modal" onclick="closeModal('cotizaModal')">&times;</button>
+            <h3 style="font-size: 24px; margin-bottom: 5px;">Cotizar</h3>
+            <p style="color: var(--gray); margin-bottom: 20px;" id="cotizaServiceTitle">Servicio Técnico</p>
+            <form class="cotiza-form" onsubmit="submitCotiza(event)">
+                <input type="text" name="name" class="cotiza-input" placeholder="Nombre completo" required>
+                <input type="email" name="email" class="cotiza-input" placeholder="Correo electrónico" required>
+                <input type="tel" name="whatsapp" class="cotiza-input" placeholder="Número de WhatsApp" required>
+                <input type="text" name="modelo" class="cotiza-input" id="equipoInput" placeholder="Modelo del equipo" required>
+                <textarea name="detalles" class="cotiza-input" placeholder="Detalles de la falla o lo que requieras..." rows="3" required></textarea>
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px; justify-content: center;">Enviar por WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="accesoriosModal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Cerrar modal" onclick="closeModal('accesoriosModal')">&times;</button>
+            <h3 style="font-size: 24px; margin-bottom: 10px;">Accesorios Disponibles</h3>
+            <p style="color: var(--gray); margin-bottom: 20px;">Selecciona el artículo que te interesa para cotizar</p>
+            <ul class="accesorios-list">
+                <li onclick="cotizaAccesorio('Cargadores de Pared')">🔌 Cargadores</li>
+                <li onclick="cotizaAccesorio('Cables Lightning/USB-C')">⚡ Cables</li>
+                <li onclick="cotizaAccesorio('Cargadores Inalámbricos')">🔋 Inalámbricos</li>
+                <li onclick="cotizaAccesorio('Audífonos de cable')">🎧 Audífonos Cable</li>
+                <li onclick="cotizaAccesorio('AirPods')">🎵 AirPods</li>
+                <li onclick="cotizaAccesorio('Otros Accesorios')">⭐ Otros</li>
+            </ul>
+        </div>
+    </div>
 
     <script>
-        // Simulador de Fundas
-        const modelBtns = document.querySelectorAll('.model-btn');
-        const colorBtns = document.querySelectorAll('.color-btn');
-        const caseOverlay = document.getElementById('caseOverlay');
-        const customText = document.getElementById('customText');
-        const caseText = document.getElementById('caseText');
-        const phoneMockup = document.getElementById('phoneMockup');
+        // Modal functions
+        const cotizaModal = document.getElementById('cotizaModal');
+        const accesoriosModal = document.getElementById('accesoriosModal');
+        const cotizaServiceTitle = document.getElementById('cotizaServiceTitle');
+        const equipoInput = document.getElementById('equipoInput');
 
-        // Cambiar modelo de iPhone
-        modelBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                modelBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+        function openCotizaModal(service) {
+            cotizaServiceTitle.textContent = service;
+            equipoInput.placeholder = service.includes('Watch') ? 'Ej. Apple Watch Series 8' : 'Ej. iPhone 14 Pro';
+            cotizaModal.classList.add('active');
+        }
 
-                const model = btn.dataset.model;
-                if (model === 'pro') {
-                    phoneMockup.style.width = '300px';
-                    phoneMockup.style.height = '600px';
-                } else {
-                    phoneMockup.style.width = '280px';
-                    phoneMockup.style.height = '560px';
-                }
-            });
-        });
+        function openAccesoriosModal() {
+            accesoriosModal.classList.add('active');
+        }
 
-        // Cambiar color
-        colorBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                colorBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                caseOverlay.style.background = btn.dataset.gradient;
-            });
-        });
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+        }
 
-        // Cambiar texto
-        customText.addEventListener('input', (e) => {
-            caseText.textContent = e.target.value || 'TU DISEÑO';
-        });
+        function submitCotiza(e) {
+            e.preventDefault();
+            const form = e.target;
+            const msg = `Hola! Me interesa cotizar: ${cotizaServiceTitle.textContent}%0ANombre: ${form.name.value}%0AWhatsApp: ${form.whatsapp.value}%0ACorreo: ${form.email.value}%0AModelo: ${form.modelo.value}%0ADetalles: ${form.detalles.value}`;
+            window.open(`https://wa.me/2941131400?text=${msg}`, '_blank');
+            closeModal('cotizaModal');
+        }
+
+        function cotizaAccesorio(item) {
+            const msg = `Hola! Me interesa cotizar un accesorio: ${item}`;
+            window.open(`https://wa.me/2941131400?text=${msg}`, '_blank');
+            closeModal('accesoriosModal');
+        }
 
         // Cargar galería de imágenes
         const galeriaGrid = document.getElementById('galeriaGrid');
         const fundasImages = [
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.43.54 PM.jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.43.54 PM (1).jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.43.54 PM (2).jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.43.54 PM (3).jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.43.54 PM (4).jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.43.55 PM.jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.44.02 PM.jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.44.02 PM (1).jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.44.02 PM (2).jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.44.02 PM (3).jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.44.02 PM (4).jpeg',
-            'FUNDAS PERSONALIZADAS/WhatsApp Image 2026-04-07 at 2.44.02 PM (5).jpeg'
+            'FUNDAS PERSONALIZADAS/ChatGPT Image 7 abr 2026, 10_17_06 p.m..png',
+            'FUNDAS PERSONALIZADAS/ChatGPT Image 7 abr 2026, 10_17_10 p.m..png',
+            'FUNDAS PERSONALIZADAS/ChatGPT Image 7 abr 2026, 10_17_23 p.m..png',
+            'FUNDAS PERSONALIZADAS/ChatGPT Image 7 abr 2026, 10_17_26 p.m..png',
+            'FUNDAS PERSONALIZADAS/ChatGPT Image 7 abr 2026, 10_17_29 p.m..png'
         ];
+
+        const galeriaRow1 = document.getElementById('galeriaRow1');
+        const galeriaRow2 = document.getElementById('galeriaRow2');
 
         fundasImages.forEach((src, index) => {
             const item = document.createElement('div');
@@ -905,7 +1073,12 @@
                     <p>Diseño #${index + 1}</p>
                 </div>
             `;
-            galeriaGrid.appendChild(item);
+            // Primeras 3 a la fila superior, las últimas 2 a la fila inferior centrada
+            if (index < 3) {
+                galeriaRow1.appendChild(item);
+            } else {
+                galeriaRow2.appendChild(item);
+            }
         });
 
         // Generar QR
